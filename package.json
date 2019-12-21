@@ -1,7 +1,7 @@
 {
   "name": "@penguinhouse/stoolie",
   "description": "Wrapper around well used logger winston.",
-  "version": "0.0.1",
+  "version": "0.0.1a",
   "author": "James Teague II <james@teague.dev>",
   "repository": {
     "type": "git",
