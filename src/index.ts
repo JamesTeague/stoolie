@@ -29,4 +29,5 @@ const stoolie = (
 };
 
 export default stoolie;
-export const NullLog = new DryStoolie();
+const NullLog = new DryStoolie();
+export { LogLevel, NullLog };
