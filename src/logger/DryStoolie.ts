@@ -1,48 +1,48 @@
 
-import { ILogger, LoggerFields } from './Logger';
+import { ILogger } from './Logger';
 
 export class DryStoolie implements ILogger {
-  withFields(fields: LoggerFields): DryStoolie {
+  withFields(): DryStoolie {
     return this;
   }
 
-  withField(key: string, value: any): DryStoolie {
+  withField(): DryStoolie {
     return this;
   }
 
-  withError(err: Error): DryStoolie {
+  public withError(): DryStoolie {
     return this;
   }
 
-  withType(type: string): DryStoolie {
-    return this
-  }
-
-  withCategory(category: string): DryStoolie {
+  withType(): DryStoolie {
     return this;
   }
 
-  silly(message: string): DryStoolie {
+  withCategory(): DryStoolie {
     return this;
   }
 
-  debug(message: string): DryStoolie {
+  silly(): DryStoolie {
     return this;
   }
 
-  verbose(message: string): DryStoolie {
+  debug(): DryStoolie {
     return this;
   }
 
-  info(message: string): DryStoolie {
+  verbose(): DryStoolie {
     return this;
   }
 
-  warn(message: string): DryStoolie {
+  info(): DryStoolie {
     return this;
   }
 
-  error(message: string): DryStoolie {
+  warn(): DryStoolie {
+    return this;
+  }
+
+  error(): DryStoolie {
     return this;
   }
 }

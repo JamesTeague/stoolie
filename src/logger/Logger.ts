@@ -1,8 +1,8 @@
 import { Logger as WinstonLogger } from 'winston';
 
 type LoggerFields = {
-  [key: string]: any
-}
+  [key: string]: any,
+};
 
 enum LogLevel {
   ERROR = 'error',
@@ -29,6 +29,8 @@ interface ILogger {
 }
 
 abstract class Logger implements ILogger {
+  protected constructor(protected readonly logger: WinstonLogger, public fields: LoggerFields) {}
+
   abstract withFields(fields: LoggerFields): Logger;
   abstract withField(key: string, value: any): Logger;
   abstract withCategory(category: string): Logger;
@@ -41,8 +43,6 @@ abstract class Logger implements ILogger {
   abstract info(message: string): Logger;
   abstract warn(message: string): Logger;
   abstract error(message: string): Logger;
-
-  protected constructor(protected readonly logger: WinstonLogger, public fields: LoggerFields) {}
 }
 
 export { ILogger, LogLevel, LoggerFields };

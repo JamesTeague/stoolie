@@ -1,23 +1,43 @@
 {
-  "name": "place-package-name-here",
+  "name": "stoolie",
+  "description": "Wrapper around well used logger winston.",
   "version": "0.0.1",
-  "description": "template for setting up project",
-  "author": "",
+  "author": "James Teague II <james@teague.dev>",
   "repository": {
     "type": "git",
-    "url": "git-url-goes-here"
+    "url": "https://github.com/JamesTeague/stoolie.git"
   },
-  "homepage": "git-url-goes-here#readme",
-  "dependencies": {},
-  "main": "index.js",
-  "module": "",
-  "files": [],
-  "types": "",
+  "dependencies": {
+    "logform": "^2.1.2",
+    "moment": "^2.24.0",
+    "triple-beam": "^1.3.0",
+    "winston": "^3.2.1"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "jest --passWithNoTests"
+    "build": "rollup -c",
+    "watch": "rollup -cw",
+    "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "winston",
+    "logger",
+    "logging",
+    "logs",
+    "loglevel",
+    "log",
+    "bunyan",
+    "pino",
+    "tools",
+    "json",
+    "stream",
+    "format"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "git-url-goes-here/issues"
@@ -27,6 +47,7 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-typescript": "^7.7.4",
     "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.17",
     "babel-jest": "^24.9.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
