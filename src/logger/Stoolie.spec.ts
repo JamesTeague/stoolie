@@ -1,9 +1,9 @@
-import Stoolie from './Stoolie';
 import * as winston from 'winston';
+import Stoolie from './Stoolie';
 
 let internalLogger;
 
-describe('Stoolie', function() {
+describe('Stoolie', () => {
   beforeAll(() => {
     internalLogger = winston.createLogger({
       transports: [
@@ -30,13 +30,13 @@ describe('Stoolie', function() {
 
     expect(logger.fields).toStrictEqual({ type: 'test' });
     expect(loggerWithOneExtraField.fields).toStrictEqual({
-      type: 'test',
       category: 'test',
+      type: 'test',
     });
     expect(loggerWithTwoExtraFields.fields).toStrictEqual({
-      type: 'test',
       category: 'test',
       id: 'test',
+      type: 'test',
     });
   });
 
@@ -65,7 +65,7 @@ describe('Stoolie', function() {
   });
 
   it('should call log method', () => {
-    let logger = new Stoolie(internalLogger, {});
+    const logger = new Stoolie(internalLogger, {});
     jest.spyOn(internalLogger, 'log');
 
     logger.silly('test');

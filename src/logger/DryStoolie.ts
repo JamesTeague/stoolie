@@ -1,6 +1,6 @@
 import { ILogger } from './Logger';
 
-export class DryStoolie implements ILogger {
+export default class DryStoolie implements ILogger {
   withFields(): DryStoolie {
     return this;
   }
