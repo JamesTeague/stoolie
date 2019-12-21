@@ -1,10 +1,9 @@
+import * as winston from 'winston';
 import stoolie from './index';
 import { LogLevel } from './logger/Logger';
 import Stoolie from './logger/Stoolie';
-import * as winston from 'winston';
 
 describe('Stoolie Library', () => {
-
   it('returns a Stoolie Object', () => {
     const logger = stoolie(LogLevel.DEBUG, {});
 
@@ -20,5 +19,5 @@ describe('Stoolie Library', () => {
     logger.info('trying it out.');
 
     // expect(winston.createLogger).toHaveBeenCalledWith({ level: 'debug' });
-  })
+  });
 });

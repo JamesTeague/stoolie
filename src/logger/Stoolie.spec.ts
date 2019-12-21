@@ -3,13 +3,14 @@ import * as winston from 'winston';
 
 let internalLogger;
 
-describe('Stoolie', function () {
-
+describe('Stoolie', function() {
   beforeAll(() => {
     internalLogger = winston.createLogger({
-      transports: [new winston.transports.Console({
-        format: winston.format.simple()
-      })]
+      transports: [
+        new winston.transports.Console({
+          format: winston.format.simple(),
+        }),
+      ],
     });
   });
 
@@ -19,23 +20,23 @@ describe('Stoolie', function () {
     expect(logger).toBeInstanceOf(Stoolie);
   });
 
-  it('contains fields it\s given', () => {
+  it('contains fields its given', () => {
     const logger = new Stoolie(internalLogger, { type: 'test' });
     const loggerWithOneExtraField = logger.withField('category', 'test');
     const loggerWithTwoExtraFields = logger.withFields({
       category: 'test',
-      id: 'test'
+      id: 'test',
     });
 
     expect(logger.fields).toStrictEqual({ type: 'test' });
     expect(loggerWithOneExtraField.fields).toStrictEqual({
       type: 'test',
-      category: 'test'
+      category: 'test',
     });
     expect(loggerWithTwoExtraFields.fields).toStrictEqual({
       type: 'test',
       category: 'test',
-      id: 'test'
+      id: 'test',
     });
   });
 
@@ -44,7 +45,7 @@ describe('Stoolie', function () {
 
     logger = logger.withCategory('test');
 
-    expect(logger.fields).toStrictEqual({ category: 'test' })
+    expect(logger.fields).toStrictEqual({ category: 'test' });
   });
 
   it('preserves a type', () => {

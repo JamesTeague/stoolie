@@ -1,4 +1,3 @@
-
 import { ILogger } from './Logger';
 
 export class DryStoolie implements ILogger {

@@ -1,7 +1,7 @@
 import { Logger as WinstonLogger } from 'winston';
 
 type LoggerFields = {
-  [key: string]: any,
+  [key: string]: any;
 };
 
 enum LogLevel {
@@ -29,7 +29,10 @@ interface ILogger {
 }
 
 abstract class Logger implements ILogger {
-  protected constructor(protected readonly logger: WinstonLogger, public fields: LoggerFields) {}
+  protected constructor(
+    protected readonly logger: WinstonLogger,
+    public fields: LoggerFields
+  ) {}
 
   abstract withFields(fields: LoggerFields): Logger;
   abstract withField(key: string, value: any): Logger;

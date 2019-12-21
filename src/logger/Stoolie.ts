@@ -2,19 +2,8 @@ import { Logger as WinstonLogger } from 'winston';
 import Logger, { LoggerFields, LogLevel } from './Logger';
 
 export default class Stoolie extends Logger {
-
   constructor(logger: WinstonLogger, fields: LoggerFields) {
     super(logger, fields);
-  }
-
-  private _log(level: LogLevel, message: string): Stoolie {
-    this.logger.log({
-      ...this.fields,
-      level: level.toString(),
-      message,
-    });
-
-    return this;
   }
 
   withFields(fields: LoggerFields): Stoolie {
@@ -28,12 +17,11 @@ export default class Stoolie extends Logger {
   }
 
   withError(err: Error): Stoolie {
-    const error = Object.getOwnPropertyNames(err)
-      .reduce((acc, key) => {
-        acc[key] = err[key];
+    const error = Object.getOwnPropertyNames(err).reduce((acc, key) => {
+      acc[key] = err[key];
 
-        return acc;
-      }, {});
+      return acc;
+    }, {});
 
     return this.withFields({ error });
   }
@@ -47,26 +35,36 @@ export default class Stoolie extends Logger {
   }
 
   silly(message: string): Stoolie {
-    return this._log(LogLevel.SILLY, message);
+    return this.log(LogLevel.SILLY, message);
   }
 
   debug(message: string): Stoolie {
-    return this._log(LogLevel.DEBUG, message);
+    return this.log(LogLevel.DEBUG, message);
   }
 
   verbose(message: string): Stoolie {
-    return this._log(LogLevel.VERBOSE, message);
+    return this.log(LogLevel.VERBOSE, message);
   }
 
   info(message: string): Stoolie {
-    return this._log(LogLevel.INFO, message);
+    return this.log(LogLevel.INFO, message);
   }
 
   warn(message: string): Stoolie {
-    return this._log(LogLevel.WARN, message);
+    return this.log(LogLevel.WARN, message);
   }
 
   error(message: string): Stoolie {
-    return this._log(LogLevel.ERROR, message);
+    return this.log(LogLevel.ERROR, message);
+  }
+
+  private log(level: LogLevel, message: string): Stoolie {
+    this.logger.log({
+      ...this.fields,
+      level: level.toString(),
+      message,
+    });
+
+    return this;
   }
 }
