@@ -1,5 +1,5 @@
 {
-  "name": "stoolie",
+  "name": "@penguinhouse/stoolie",
   "description": "Wrapper around well used logger winston.",
   "version": "0.0.1",
   "author": "James Teague II <james@teague.dev>",
@@ -21,6 +21,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
+    "prepublish": "npm run test && npm run build",
     "watch": "rollup -cw",
     "test": "jest"
   },
