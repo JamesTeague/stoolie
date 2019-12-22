@@ -6,6 +6,7 @@ import { isProduction } from './utilities';
 const createWinstonLogger = (options?: LoggerOptions) => createLogger(options);
 
 const stoolie = (
+  app: string,
   level: LogLevel = LogLevel.INFO,
   loggerOptions?: LoggerOptions
 ) => {
@@ -25,7 +26,7 @@ const stoolie = (
     ...options,
   });
 
-  return new Stoolie(logger, {});
+  return new Stoolie(logger, { app });
 };
 
 export default stoolie;
