@@ -1,6 +1,6 @@
 import { createLogger, LoggerOptions, transports } from 'winston';
 import { getDevFormat, getProdFormat } from './format';
-import { DryStoolie, LogLevel, Stoolie } from './logger';
+import { DryStoolie, ILogger, LogLevel, Stoolie } from './logger';
 import { isProduction } from './utilities';
 
 const createWinstonLogger = (options?: LoggerOptions) => createLogger(options);
@@ -31,4 +31,4 @@ const stoolie = (
 
 export default stoolie;
 const NullLog = new DryStoolie();
-export { LogLevel, NullLog };
+export { ILogger, LogLevel, NullLog };
