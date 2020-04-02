@@ -1,3 +1,3 @@
-const isProduction = ({ NODE_ENV }) => NODE_ENV === 'production';
+const isProduction = (env: any) => env.NODE_ENV === 'production';
 
 export { isProduction };
