@@ -1,4 +1,4 @@
-import tripleBeam from 'triple-beam';
+import { LEVEL } from 'triple-beam';
 import { format } from 'winston';
 
 export default function getDevFormat() {
@@ -12,15 +12,14 @@ export default function getDevFormat() {
       const level = info.level.substr(0, 5).padEnd(5);
 
       const moniker = `${colorizer.colorize(
-        info[tripleBeam.LEVEL],
+        info[LEVEL],
         level
       )} ${timestamp.toString()} - [${app}${category ? ` (${category})` : ''}]`;
       const fields = Object.keys(rest).reduce(
         (acc, k) =>
-          `${acc}   ${colorizer.colorize(
-            info[tripleBeam.LEVEL],
-            k
-          )}=${JSON.stringify(rest[k])}`,
+          `${acc}   ${colorizer.colorize(info[LEVEL], k)}=${JSON.stringify(
+            rest[k]
+          )}`,
         ''
       );
 

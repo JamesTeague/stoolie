@@ -21,7 +21,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "prepublish": "npm run test && npm run build",
+    "prepublishOnly": "npm run test && npm run build",
+    "prettier": "prettier --write 'src/**/*.{js,ts}'",
+    "prettier:check": "prettier --check 'src/**/*.{js,ts}'",
+    "prerelease": "git checkout master && git pull origin master && npm i && git add .",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version -a --no-verify",
+    "postrelease": "run-s release:*",
+    "release:tags": "git push --follow-tags origin master",
     "watch": "rollup -cw",
     "test": "jest"
   },
@@ -44,24 +50,25 @@
     "url": "https://github.com/JamesTeague/stoolie/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-typescript": "^7.7.4",
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.17",
-    "babel-jest": "^24.9.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.34",
+    "babel-jest": "^25.2.4",
     "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "^3.0.2",
+    "cz-conventional-changelog": "^3.1.0",
     "husky": "^3.1.0",
-    "jest": "^24.9.0",
+    "jest": "^25.2.4",
     "prettier": "1.19.1",
-    "rollup": "^1.27.13",
+    "rollup": "^1.32.1",
     "rollup-plugin-typescript2": "^0.25.3",
-    "ts-jest": "^24.2.0",
-    "ts-loader": "^6.2.1",
+    "standard-version": "^7.1.0",
+    "ts-jest": "^25.3.0",
+    "ts-loader": "^6.2.2",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.8.3"
   },
   "config": {
     "commitizen": {
