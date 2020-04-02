@@ -1,7 +1,7 @@
 {
   "name": "stoolie",
   "description": "Wrapper around well used logger, winston.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "James Teague II <james@teague.dev>",
   "repository": {
     "type": "git",
